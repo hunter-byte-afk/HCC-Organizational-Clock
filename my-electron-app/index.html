@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'"
+    />
+    <meta
+      http-equiv="X-Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'"
+    />
+    <title>Hello from Electron renderer!</title>
+  </head>
+  <body>
+    <h1>Hello World PWA + Electron</h1>
+    <input id="input" placeholder="Type something..." />
+    <button id="save">Save to IndexedDB</button>
+    <button id="load">Load from IndexedDB</button>
+    <p id="output"></p>
+  </body>
+  <script src="./renderer.js"></script>
+</html>
+
