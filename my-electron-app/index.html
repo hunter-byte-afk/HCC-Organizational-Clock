@@ -1,24 +1,36 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self'"
-    />
-    <meta
-      http-equiv="X-Content-Security-Policy"
-      content="default-src 'self'; script-src 'self'"
-    />
-    <title>Hello from Electron renderer!</title>
-  </head>
-  <body>
-    <h1>Hello World PWA + Electron</h1>
-    <input id="input" placeholder="Type something..." />
-    <button id="save">Save to IndexedDB</button>
-    <button id="load">Load from IndexedDB</button>
-    <p id="output"></p>
-  </body>
-  <script src="./renderer.js"></script>
-</html>
+<html lang="en">
+<head>
+  <link rel = "stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <title>Clock In App (PWA + Electron)</title>
+  <link rel="manifest" href="manifest.json">
+</head>
 
+<style>
+  .context {
+    max-width: 500px;
+    margin: auto;
+  }
+</style>
+
+<body>
+  <h1>Clock In System</h1>
+  
+  <div class = "context">
+    <button id="clock-in">Clock In</button>
+    <button id="view-clockins">View Clock-Ins</button>
+
+    <p id="status"></p>
+    <ul id="clockin-list"></ul>
+
+    <script src="renderer.js"></script>
+    <script>
+      // Register service worker for PWA
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("service-worker.js");
+      }
+    </script>
+  </div>
+</body>
+</html>
