@@ -1,0 +1,19 @@
+body{
+    background-color: #8aa5a9;
+}
+
+h1{
+    text-align: center;
+}
+
+a{
+    text-align: center;
+    text-decoration: none;
+    padding: 50;
+    color:black;
+}
+
+a:hover{
+    background-color: #2e6b74;
+    color:white;
+}
