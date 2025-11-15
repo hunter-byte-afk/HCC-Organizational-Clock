@@ -1,0 +1,55 @@
+<!-- Renamed Index.html to Clock.html-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            http-equiv="Content-Security-Policy"
+            content="default-src 'self'; script-src 'self'"
+        />
+        <meta
+            http-equiv="X-Content-Security-Policy"
+            content="default-src 'self'; script-src 'self'"
+        />
+        <title> Organizational Clock </title>
+        <link rel = "stylesheet" href = "style.css"/>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Organizational Clock</h1>
+            
+            <div class="clock-display">
+                <div class="current-time" id="currentTime">00:00:00</div>
+                <div class="status" id="status">Not Clocked In</div>
+            </div>
+            <!-- this is currently not working as intended and needs to be altered for final project-->
+            <div class="button-group">
+                <button id="clockInBtn" class="btn btn-in" onclick="clockIn()">Clock In</button>
+                <button id="clockOutBtn" class="btn btn-out" onclick="clockOut()" disabled>Clock Out</button>
+            </div>
+
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-label">Today's Hours:</span>
+                    <span class="stat-value" id="todayHours">0h 0m</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Clocked In Since:</span>
+                    <span class="stat-value" id="clockedInTime">--:-- --</span>
+                </div>
+            </div>
+
+            <div class="time-entries">
+                <h2>Time Entries</h2>
+                <div id="entriesList" class="entries-list">
+                    <p class="empty-message">No entries yet</p>
+                </div>
+            </div>
+
+            <div class="mainButtons">
+                <a href="calendar.html">Calendar</a>
+            </div>
+        </div>
+    </body>
+    <script src="./clock.js"></script>
+</html>
