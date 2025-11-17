@@ -1,8 +1,44 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name = "viewport" content="width=device-width, initial-scale=1.0">
+        <title> Calendar Page </title>
+    </head>
     <body>
         <link rel = "stylesheet" href="style.css">
 
-        <a href = "index.html"> Home </a>
+        <a href = "home.html"> Home </a>
+        <h1> Organizational Time Clock </h1>
+
+        <div class = "mainButtons">
+            <ul>
+                <a href = "calendar.html"></a>
+                <a href = "#">Weekly View</a>
+                <a href = "#">Monthly View</a>
+            </ul>
+        </div>
+
+        <div class = "calendarContainer">
+            <div class = "calendar-header">
+                <h2 id = "current-month"></h2>
+                <button id = "prev-month">Prev</button>
+                <button id = "next-month">Next</button>
+            </div>
+        </div>
+        <table class = "calendar">
+            <thead>
+                <tr>
+                    <th>Sun</th>
+                    <th>Mon</th>
+                    <th>Tue</th>
+                    <th>Wed</th>
+                    <th>Thu</th>
+                    <th>Fri</th>
+                    <th>Sat</th>
+                </tr>
+            </thead>
+            <tbody ide = "calendar-body">
+        </table>
     </body>
 </html>
