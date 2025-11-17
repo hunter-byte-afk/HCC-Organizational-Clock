@@ -1,5 +1,5 @@
 /* CLOCK SECTION*/
-    .clock body{
+    .clock{
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         margin: 0;
@@ -181,14 +181,14 @@
         margin: 0;
     }
 
-    .mainButtons {
+    .clock .mainButtons {
         text-align: center;
         margin-top: 30px;
         padding-top: 30px;
         border-top: 1px solid #eee;
     }
 
-    .mainButtons a {
+    .clock .mainButtons a {
         display: inline-block;
         text-align: center;
         text-decoration: none;
@@ -199,7 +199,7 @@
         transition: all 0.3s ease;
     }
 
-    .mainButtons a:hover {
+    .clock .mainButtons a:hover {
         background-color: #764ba2;
         transform: scale(1.05);
     }
@@ -237,7 +237,7 @@
         color:white;
     }
 
-    .mainButtons ul{
+    .calendar .mainButtons ul{
         list-style: none;
         padding: 0;
         margin: 0;
@@ -358,8 +358,15 @@
 
     .menu .container {
         max-width: 300px;
-        text-align: center;
         margin: auto;
         background-color: white;
         box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    .menu a{
+        text-decoration: none;
+    }
+
+    .menu a:hover h1{
+        color: white;
     }
