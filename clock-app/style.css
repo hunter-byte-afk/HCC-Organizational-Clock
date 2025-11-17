@@ -205,3 +205,132 @@
     }
 
 /*CALENDAR CSS HERE*/
+body{
+    background-color: #8aa5a9;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+h1{
+    text-align: center;
+    color: #2e6b74;
+    margin-bottom: 20px;
+}
+
+a{
+    text-align: center;
+    text-decoration: none;
+    padding: 50;
+    color:black;
+    display: inline-block;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+a:hover{
+    background-color: #2e6b74;
+    color:white;
+}
+
+.mainButtons ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.calendar-container{
+    background-color: #2e6b74;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.calendar-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.calendar-header h2{
+    margin: 0;
+    color: #2e6b74;
+}
+
+.calendar-nav{
+    display: flex;
+    gap: 10px;
+}
+
+.calendar-nav button{
+    background-color: #2e6b74;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.calendar-nav button:hover{
+    background-color: #1f4f52;
+}
+
+.calendar {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.calendar th{
+    background-color: #2e6b74;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+.calendar td{
+    border: 1px solid #ddd;
+    width: 14.28%;
+    height: 100px;
+    vertical-align: top;
+    padding: 5px;
+}
+
+.calendar .other-month{
+    background-color: #f5f5f5;
+    color: #aaa;
+}
+
+.calendar .today{
+    background-color: #e6f7ff;
+    border: 2px solid #2e6b74;
+}
+
+.calendar .date-number{
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.calendar .hours {
+    background-color: #8aa5a9;
+    color: white;
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-size: 0.8em;
+    margin-top: 5px;
+    display: inline-block;
+}
+
+.calendar .time-slot {
+    font-size: 0.7em;
+    color: #667;
+    margin-top: 2px;
+}
