@@ -36,7 +36,7 @@ a:hover{
 }
 
 .calendar-container{
-    background-color: white;
+    background-color: #2e6b74;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 20px;
@@ -77,9 +77,46 @@ a:hover{
     background-color: #1f4f52;
 }
 
+.prev-button{
+    position: fixed;
+    left: 10px;
+    top: 100px;
+    z-index: 1000;
+    background-color: #2e6b74;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.prev-button:hover{
+    background-color: #1f4f52;
+}
+
+.next-button{
+    position: fixed;
+    right: 10px;
+    top: 100px;
+    z-index: 1000;
+    background-color: #2e6b74;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.next-button:hover{
+    background-color: #1f4f52;
+}
+
 .calendar {
     width: 100%;
     border-collapse: collapse;
+    margin-top: 16px;
 }
 
 .calendar th{
