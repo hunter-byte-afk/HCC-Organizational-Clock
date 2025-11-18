@@ -5,12 +5,6 @@ body{
     padding: 20px;
 }
 
-h1{
-    text-align: center;
-    color: #2e6b74;
-    margin-bottom: 20px;
-}
-
 a{
     text-align: center;
     text-decoration: none;
@@ -48,14 +42,14 @@ a:hover{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 12px;
     padding-bottom: 10px;
     border-bottom: 1px solid #ddd;
 }
 
 .calendar-header h2{
     margin: 0;
-    color: #2e6b74;
+    color: #ffffff; /* make header text visible against the container background */
 }
 
 .calendar-nav{
@@ -77,11 +71,7 @@ a:hover{
     background-color: #1f4f52;
 }
 
-.prev-button{
-    position: fixed;
-    left: 10px;
-    top: 100px;
-    z-index: 1000;
+.nav-btn{
     background-color: #2e6b74;
     color: white;
     border: none;
@@ -91,32 +81,14 @@ a:hover{
     transition: background-color 0.3s;
 }
 
-.prev-button:hover{
-    background-color: #1f4f52;
-}
-
-.next-button{
-    position: fixed;
-    right: 10px;
-    top: 100px;
-    z-index: 1000;
-    background-color: #2e6b74;
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.next-button:hover{
-    background-color: #1f4f52;
-}
+.nav-btn:hover{ background-color: #1f4f52 }
 
 .calendar {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 16px;
+    border-radius: 0px;
+    table-layout: fixed;
+    margin-top: 1px;
 }
 
 .calendar th{
@@ -129,9 +101,10 @@ a:hover{
 .calendar td{
     border: 1px solid #ddd;
     width: 14.28%;
-    height: 100px;
     vertical-align: top;
-    padding: 5px;
+    padding: 8px;
+    height: 90px;
+    overflow: hidden;
 }
 
 .calendar .other-month{
@@ -147,6 +120,17 @@ a:hover{
 .calendar .date-number{
     font-weight: bold;
     margin-bottom: 5px;
+}
+
+/* make the number stand out in the top-left */
+.calendar td .date-number{
+    display: inline-block;
+    font-size: 0.95em;
+}
+
+/* Lighten all regular date boxes so today's cell stands out more */
+.calendar td:not(.today):not(.other-month){
+    background-color: #fbfcfd; /* very light tint — change to taste */
 }
 
 .calendar .hours {
