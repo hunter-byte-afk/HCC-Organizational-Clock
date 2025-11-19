@@ -410,3 +410,25 @@
     .navbar a.navLogOut{
         float: right;
     }
+
+
+
+
+
+/*OVERLAY SECTION*/
+    #overlay{
+        position: fixed;
+        display: none;
+        margin: 0 auto;
+        background-color: rgba(0,0,0,0.5); /*opaque overlay in black*/
+        cursor: pointer;
+    }
+
+    #text{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 50px;
+  color: white;
+  transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);}
