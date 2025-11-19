@@ -253,6 +253,31 @@ a:hover{
     gap: 15px;
 }
 
+.top-links{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+    margin-bottom: 12px;
+    float: left;
+    width: 160px;
+    margin-right: 16px;
+}
+
+.top-links .top-link{
+    display: inline-block;
+    background: #ffffff;
+    color: #2e6b74;
+    padding: 8px 12px;
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    text-decoration: none;
+}
+
+.top-links .top-link:hover{
+    box-shadow: 0 8px 24px rgba(0,0,0,0.16);
+}
+
 .calendar-container{
     background-color: #2e6b74;
     border-radius: 8px;
@@ -260,6 +285,28 @@ a:hover{
     padding: 20px;
     max-width: 1000px;
     margin: 0 auto;
+    margin-left: 210px;
+}
+
+@media (max-width: 900px){
+    .top-links{
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: auto;
+        float: none;
+        margin: 0 0 12px;
+    }
+    .calendar-container{
+        margin-left: 0;
+    }
+}
+
+.calendar-container .top-links{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    margin-bottom: 20px;
 }
 
 .calendar-header{
@@ -273,7 +320,7 @@ a:hover{
 
 .calendar-header h2{
     margin: 0;
-    color: #ffffff; /* make header text visible against the container background */
+    color: #ffffff;
 }
 
 .calendar-nav{
@@ -346,15 +393,13 @@ a:hover{
     margin-bottom: 5px;
 }
 
-/* make the number stand out in the top-left */
 .calendar td .date-number{
     display: inline-block;
     font-size: 0.95em;
 }
 
-/* Lighten all regular date boxes so today's cell stands out more */
 .calendar td:not(.today):not(.other-month){
-    background-color: #fbfcfd; /* very light tint — change to taste */
+    background-color: #fbfcfd;
 }
 
 .calendar .hours {
