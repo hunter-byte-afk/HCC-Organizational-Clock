@@ -101,6 +101,13 @@
                         body.appendChild(tr);
                     }
                 }
+                
+                //listener for pop-up
+                body.addEventListener('click', (e) => {
+                    if(e.target.tagName == 'TD'){
+                        window.location.href = "clock.html";
+                    }
+                });
 
                 prevBtn.addEventListener('click', () => {
                     viewDate.setMonth(viewDate.getMonth() - 1);
