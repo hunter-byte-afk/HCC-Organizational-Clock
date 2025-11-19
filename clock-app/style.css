@@ -1,0 +1,412 @@
+/* LOG IN SECTION*/
+    .logIn{
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 20px;
+        min-height: 100vh;
+    }
+
+
+
+
+
+/* CLOCK SECTION*/
+    .clock{
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0px;
+        min-height: 100vh;
+    }
+
+    .container { /* changed margin for top and bottom */
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: white;
+        border-radius: 15px;
+        padding: 40px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    h1 {
+        text-align: center;
+        color: #333;
+        margin-top: 0px;
+    }
+
+    h2 {
+        color: #555;
+        font-size: 1.2em;
+        margin-top: 30px;
+        margin-bottom: 15px;
+    }
+
+    .clock-display {
+        text-align: center;
+        padding: 30px;
+        background-color: #f8f9fa;
+        border-radius: 10px;
+        margin-bottom: 30px;
+    }
+
+    .current-time {
+        font-size: 3.5em;
+        font-weight: bold;
+        color: #667eea;
+        font-family: 'Courier New', monospace;
+        margin-bottom: 10px;
+    }
+
+    .status {
+        font-size: 1.2em;
+        color: #999;
+        font-weight: 500;
+    }
+
+    .status.clocked-in {
+        color: #27ae60;
+        font-weight: bold;
+    }
+
+    .button-group {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 30px;
+        justify-content: center;
+    }
+
+    .btn {
+        padding: 15px 40px;
+        font-size: 1.1em;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        min-width: 150px;
+    }
+
+    .btn-in {
+        background-color: #27ae60;
+        color: white;
+    }
+
+    .btn-in:hover:not(:disabled) {
+        background-color: #229954;
+        transform: scale(1.05);
+    }
+
+    .btn-out {
+        background-color: #e74c3c;
+        color: white;
+    }
+
+    .btn-out:hover:not(:disabled) {
+        background-color: #c0392b;
+        transform: scale(1.05);
+    }
+
+    .btn:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+
+    .stats {
+        background-color: #f8f9fa;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 30px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    .stat-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .stat-label {
+        font-size: 0.9em;
+        color: #999;
+        margin-bottom: 5px;
+        font-weight: 600;
+    }
+
+    .stat-value {
+        font-size: 1.5em;
+        color: #667eea;
+        font-weight: bold;
+        font-family: 'Courier New', monospace;
+    }
+
+    .time-entries {
+        margin-bottom: 30px;
+    }
+
+    .entries-list {
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        padding: 15px;
+        max-height: 300px;
+        overflow-y: auto;
+    }
+
+    .entry-item {
+        background-color: white;
+        padding: 12px;
+        margin-bottom: 10px;
+        border-left: 4px solid #667eea;
+        border-radius: 4px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .entry-times {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .entry-time {
+        font-size: 0.9em;
+        color: #555;
+        font-family: 'Courier New', monospace;
+    }
+
+    .entry-duration {
+        font-size: 0.85em;
+        color: #999;
+        margin-top: 3px;
+    }
+
+    .entry-date {
+        font-size: 0.8em;
+        color: #999;
+    }
+
+    .empty-message {
+        color: #999;
+        text-align: center;
+        padding: 20px;
+        margin: 0;
+    }
+
+    .clock .mainButtons {
+        text-align: center;
+        margin-top: 30px;
+        padding-top: 30px;
+        border-top: 1px solid #eee;
+    }
+
+    .clock .mainButtons a {
+        display: inline-block;
+        text-align: center;
+        text-decoration: none;
+        padding: 12px 30px;
+        color: white;
+        background-color: #667eea;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+
+    .clock .mainButtons a:hover {
+        background-color: #764ba2;
+        transform: scale(1.05);
+    }
+
+
+
+
+    
+/* CALENDAR SECTION*/
+    body{
+        background-color: #8aa5a9;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0px;
+    }
+
+    a{
+        text-align: center;
+        text-decoration: none;
+        padding: 50;
+        color:black;
+        display: inline-block;
+        border-radius: 4px;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    a:hover{
+        background-color: #2e6b74;
+        color:white;
+    }
+
+    .mainButtons ul{
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .calendar-container{ /* changed margin for top and bottom */
+        background-color: #2e6b74;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        max-width: 1000px;
+        margin: 0 auto;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .calendar-header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 12px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .calendar-header h2{
+        margin: 0;
+        color: #ffffff; /* make header text visible against the container background */
+    }
+
+    .calendar-nav{
+        display: flex;
+        gap: 10px;
+    }
+
+    .calendar-nav button{
+        background-color: #2e6b74;
+        color: white;
+        border: none;
+        padding: 8px 12px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .calendar-nav button:hover{
+        background-color: #1f4f52;
+    }
+
+    .nav-btn{
+        background-color: #2e6b74;
+        color: white;
+        border: none;
+        padding: 8px 12px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .nav-btn:hover{ background-color: #1f4f52 }
+
+    .calendar {
+        width: 100%;
+        border-collapse: collapse;
+        border-radius: 0px;
+        table-layout: fixed;
+        margin-top: 1px;
+    }
+
+    .calendar th{
+        background-color: #2e6b74;
+        color: white;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .calendar td{
+        border: 1px solid #ddd;
+        width: 14.28%;
+        vertical-align: top;
+        padding: 8px;
+        height: 90px;
+        overflow: hidden;
+    }
+
+    .calendar .other-month{
+        background-color: #f5f5f5;
+        color: #aaa;
+    }
+
+    .calendar .today{
+        background-color: #e6f7ff;
+        border: 2px solid #2e6b74;
+    }
+
+    .calendar .date-number{
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    /* make the number stand out in the top-left */
+    .calendar td .date-number{
+        display: inline-block;
+        font-size: 0.95em;
+    }
+
+    /* Lighten all regular date boxes so today's cell stands out more */
+    .calendar td:not(.today):not(.other-month){
+        background-color: #fbfcfd; /* very light tint — change to taste */
+    }
+
+    .calendar .hours {
+        background-color: #8aa5a9;
+        color: white;
+        padding: 2px 4px;
+        border-radius: 3px;
+        font-size: 0.8em;
+        margin-top: 5px;
+        display: inline-block;
+    }
+
+    .view.toggle{
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .view.toggle a{
+        margin: 0 10px;
+    }
+
+    .view.toggle a.active{
+        background-color: #2e6b74;
+        color: white;
+    }
+
+/*NAVBAR SECTION*/
+    .navbar{
+        background-color: #0f0619;
+    }
+
+    .navbar a{
+        text-decoration: none;
+        text-align: center;
+        color: white;
+        padding: 20px;
+        font-size: 15px;
+        font-weight: bold;
+    }
+
+    .navbar a:hover{
+        background-color: #9c6dcc;
+    }
+
+    .navbar a.active{
+        background-color: #442564;
+    }
+
+    .navbar a.navLogOut{
+        float: right;
+    }

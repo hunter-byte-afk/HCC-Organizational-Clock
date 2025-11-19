@@ -1,8 +1,127 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Calendar Page</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
     <body>
-        <link rel = "stylesheet" href="style.css">
+        <div class = "navbar">
+            <a href = "clock.html">Clock In/Out</a>
+            <a class = "active" href = "calendar.html">Calendar</a>
+            <a class = "navLogOut" href = "index.html">Log Out</a>
+        </div>
 
-        <a href = "index.html"> Home </a>
+        <div class="calendar-container">
+            <div class="calendar-header">
+                <button id="prev-month" class="nav-btn">Prev</button>
+                <h2 id="current-month"></h2>
+                <button id="next-month" class="nav-btn">Next</button>
+            </div>
+                <table class="calendar" aria-label="Monthly calendar">
+                    <thead>
+                        <tr>
+                            <th>Sun</th>
+                            <th>Mon</th>
+                            <th>Tue</th>
+                            <th>Wed</th>
+                            <th>Thu</th>
+                            <th>Fri</th>
+                            <th>Sat</th>
+                        </tr>
+                    </thead>
+                    <tbody id="calendar-body">
+                    </tbody>
+                </table>
+        </div>
+
+        <script>
+            (function monthlyRenderer(){
+                const monthTitle = document.getElementById('current-month');
+                const body = document.getElementById('calendar-body');
+                const prevBtn = document.getElementById('prev-month');
+                const nextBtn = document.getElementById('next-month');
+
+                // keep track of visible month
+                let viewDate = new Date();
+                viewDate.setDate(1);
+
+                function render(){
+                    const year = viewDate.getFullYear();
+                    const month = viewDate.getMonth();
+                    const today = new Date();
+
+                    monthTitle.textContent = viewDate.toLocaleString(undefined, { month: 'long', year: 'numeric' });
+
+                    // compute month layout
+                    const firstDayIndex = new Date(year, month, 1).getDay();
+                    const daysInMonth = new Date(year, month + 1, 0).getDate();
+                    const daysInPrev = new Date(year, month, 0).getDate();
+
+                    body.innerHTML = '';
+
+                    // 6 weeks to cover all month layouts
+                    let dayCounter = 1 - firstDayIndex;
+                    for(let week = 0; week < 6; week++){
+                        const tr = document.createElement('tr');
+                        for(let d = 0; d < 7; d++){
+                            const td = document.createElement('td');
+
+                            const cellDate = new Date(year, month, dayCounter);
+                            const cellDay = cellDate.getDate();
+
+                            const dateDiv = document.createElement('div');
+                            dateDiv.className = 'date-number';
+                            dateDiv.textContent = cellDay;
+                            td.appendChild(dateDiv);
+
+                            // mark other-month days
+                            if(dayCounter < 1){
+                                td.classList.add('other-month');
+                            } else if(dayCounter > daysInMonth){
+                                td.classList.add('other-month');
+                            } else {
+                                // current month day
+                                // mark today
+                                if(cellDate.toDateString() === today.toDateString()){
+                                    td.classList.add('today');
+                                }
+                            }
+
+                            // space for events/hours
+                            const eventsDiv = document.createElement('div');
+                            eventsDiv.className = 'hours';
+                            eventsDiv.textContent = '';
+                            td.appendChild(eventsDiv);
+
+                            tr.appendChild(td);
+                            dayCounter++;
+                        }
+                        body.appendChild(tr);
+                    }
+                }
+                
+                //listener for pop-up
+                body.addEventListener('click', (e) => {
+                    if(e.target.tagName == 'TD'){
+                        window.location.href = "clock.html";
+                    }
+                });
+
+                prevBtn.addEventListener('click', () => {
+                    viewDate.setMonth(viewDate.getMonth() - 1);
+                    render();
+                });
+
+                nextBtn.addEventListener('click', () => {
+                    viewDate.setMonth(viewDate.getMonth() + 1);
+                    render();
+                });
+
+                // initial render
+                render();
+            })();
+        </script>
     </body>
 </html>

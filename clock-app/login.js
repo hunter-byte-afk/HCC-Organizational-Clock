@@ -1,5 +1,5 @@
 // got help from chatGPT to create this login.js 
 
 document.getElementById("loginBtn").addEventListener("click", () => {
-    window.location.href = "clock.html";
+    window.location.href = "calendar.html";
 });
