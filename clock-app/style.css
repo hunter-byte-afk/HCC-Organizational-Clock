@@ -222,147 +222,164 @@
 
     
 /* CALENDAR CSS SECTION*/
-    .calendar{
-        background: #8aa5a9;
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 20px;
-    }
+    body{
+    background-color: #8aa5a9;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
 
-    h1{
-        text-align: center;
-        color: #2e6b74;
-        margin-bottom: 20px;
-    }
+a{
+    text-align: center;
+    text-decoration: none;
+    padding: 50;
+    color:black;
+    display: inline-block;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
 
-    a{
-        text-align: center;
-        text-decoration: none;
-        padding: 50;
-        color:black;
-        display: inline-block;
-        border-radius: 4px;
-        transition: background-color 0.3s, color 0.3s;
-    }
+a:hover{
+    background-color: #2e6b74;
+    color:white;
+}
 
-    a:hover{
-        background-color: #2e6b74;
-        color:white;
-    }
+.mainButtons ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
 
-    .calendar .mainButtons ul{
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        justify-content: center;
-        gap: 15px;
-    }
+.calendar-container{
+    background-color: #2e6b74;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
 
-    .calendar-container{
-        background-color: white;
-        border-radius: 8px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        padding: 20px;
-        max-width: 1000px;
-        margin: 0 auto;
-    }
+.calendar-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
 
-    .calendar-header{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 20px;
-        padding-bottom: 10px;
-        border-bottom: 1px solid #ddd;
-    }
+.calendar-header h2{
+    margin: 0;
+    color: #ffffff; /* make header text visible against the container background */
+}
 
-    .calendar-header h2{
-        margin: 0;
-        color: #2e6b74;
-    }
+.calendar-nav{
+    display: flex;
+    gap: 10px;
+}
 
-    .calendar-nav{
-        display: flex;
-        gap: 10px;
-    }
+.calendar-nav button{
+    background-color: #2e6b74;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
 
-    .calendar-nav button{
-        background-color: #2e6b74;
-        color: white;
-        border: none;
-        padding: 8px 12px;
-        border-radius: 4px;
-        cursor: pointer;
-        transition: background-color 0.3s;
-    }
+.calendar-nav button:hover{
+    background-color: #1f4f52;
+}
 
-    .calendar-nav button:hover{
-        background-color: #1f4f52;
-    }
+.nav-btn{
+    background-color: #2e6b74;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
 
-    .calendar {
-        width: 100%;
-        border-collapse: collapse;
-    }
+.nav-btn:hover{ background-color: #1f4f52 }
 
-    .calendar th{
-        background-color: #2e6b74;
-        color: white;
-        padding: 10px;
-        text-align: center;
-    }
+.calendar {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 0px;
+    table-layout: fixed;
+    margin-top: 1px;
+}
 
-    .calendar td{
-        border: 1px solid #ddd;
-        width: 14.28%;
-        height: 100px;
-        vertical-align: top;
-        padding: 5px;
-    }
+.calendar th{
+    background-color: #2e6b74;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
 
-    .calendar .other-month{
-        background-color: #f5f5f5;
-        color: #aaa;
-    }
+.calendar td{
+    border: 1px solid #ddd;
+    width: 14.28%;
+    vertical-align: top;
+    padding: 8px;
+    height: 90px;
+    overflow: hidden;
+}
 
-    .calendar .today{
-        background-color: #e6f7ff;
-        border: 2px solid #2e6b74;
-    }
+.calendar .other-month{
+    background-color: #f5f5f5;
+    color: #aaa;
+}
 
-    .calendar .date-number{
-        font-weight: bold;
-        margin-bottom: 5px;
-    }
+.calendar .today{
+    background-color: #e6f7ff;
+    border: 2px solid #2e6b74;
+}
 
-    .calendar .hours {
-        background-color: #8aa5a9;
-        color: white;
-        padding: 2px 4px;
-        border-radius: 3px;
-        font-size: 0.8em;
-        margin-top: 5px;
-        display: inline-block;
-    }
+.calendar .date-number{
+    font-weight: bold;
+    margin-bottom: 5px;
+}
 
-    .view.toggle{
-        text-align: center;
-        margin-top: 20px;
-    }
+/* make the number stand out in the top-left */
+.calendar td .date-number{
+    display: inline-block;
+    font-size: 0.95em;
+}
 
-    .view.toggle a{
-        margin: 0 10px;
-    }
+/* Lighten all regular date boxes so today's cell stands out more */
+.calendar td:not(.today):not(.other-month){
+    background-color: #fbfcfd; /* very light tint — change to taste */
+}
 
-    .view.toggle a.active{
-        background-color: #2e6b74;
-        color: white;
-    }
+.calendar .hours {
+    background-color: #8aa5a9;
+    color: white;
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-size: 0.8em;
+    margin-top: 5px;
+    display: inline-block;
+}
 
+.view.toggle{
+    text-align: center;
+    margin-top: 20px;
+}
 
+.view.toggle a{
+    margin: 0 10px;
+}
 
-
+.view.toggle a.active{
+    background-color: #2e6b74;
+    color: white;
+}
 
 /* MENU CSS SECION */
     .menu {
