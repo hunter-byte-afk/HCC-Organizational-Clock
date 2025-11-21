@@ -1,5 +1,5 @@
 body{
-    background-color: #8aa5a9;
+    background-color: #f0edff;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 20px;
@@ -16,7 +16,7 @@ a{
 }
 
 a:hover{
-    background-color: #2e6b74;
+    background-color: #9d8ed4;
     color:white;
 }
 
@@ -43,7 +43,7 @@ a:hover{
 .top-links .top-link{
     display: inline-block;
     background: #ffffff;
-    color: #2e6b74;
+    color: #6d5ba9;
     padding: 8px 12px;
     border-radius: 8px;
     box-shadow: 0 6px 18px rgba(0,0,0,0.12);
@@ -55,7 +55,7 @@ a:hover{
 }
 
 .calendar-container{
-    background-color: #2e6b74;
+    background-color: #6d5ba9;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 20px;
@@ -105,7 +105,7 @@ a:hover{
 }
 
 .calendar-nav button{
-    background-color: #2e6b74;
+    background-color: #6d5ba9;
     color: white;
     border: none;
     padding: 8px 12px;
@@ -115,11 +115,11 @@ a:hover{
 }
 
 .calendar-nav button:hover{
-    background-color: #1f4f52;
+    background-color: #7d6bb4;
 }
 
 .nav-btn{
-    background-color: #2e6b74;
+    background-color: #6d5ba9;
     color: white;
     border: none;
     padding: 8px 12px;
@@ -128,7 +128,7 @@ a:hover{
     transition: background-color 0.3s;
 }
 
-.nav-btn:hover{ background-color: #1f4f52 }
+.nav-btn:hover{ background-color: #7d6bb4;}
 
 .calendar {
     width: 100%;
@@ -139,7 +139,7 @@ a:hover{
 }
 
 .calendar th{
-    background-color: #2e6b74;
+    background-color: #6d5ba9;
     color: white;
     padding: 10px;
     text-align: center;
@@ -160,8 +160,8 @@ a:hover{
 }
 
 .calendar .today{
-    background-color: #e6f7ff;
-    border: 2px solid #2e6b74;
+    background-color: #f0edff;
+    border: 2px solid #6d5ba9;
 }
 
 .calendar .date-number{
@@ -177,11 +177,11 @@ a:hover{
 
 /* Lighten all regular date boxes so today's cell stands out more */
 .calendar td:not(.today):not(.other-month){
-    background-color: #fbfcfd; /* very light tint — change to taste */
+    background-color: #fdfcff; /* very light tint — change to taste */
 }
 
 .calendar .hours {
-    background-color: #8aa5a9;
+    background-color: #8a7bc8;
     color: white;
     padding: 2px 4px;
     border-radius: 3px;
@@ -200,6 +200,6 @@ a:hover{
 }
 
 .view.toggle a.active{
-    background-color: #2e6b74;
+    background-color: #6d5ba9;
     color: white;
 }
