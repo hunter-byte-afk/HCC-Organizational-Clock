@@ -420,10 +420,37 @@
         position: fixed;
         display: none;
         margin: 0 auto;
-        background-color: rgba(0,0,0,0.5); /*opaque overlay in black*/
+        background-color: yellow; /*opaque overlay in black*/
         cursor: pointer;
     }
 
     #text{
         color:#0f0619;
+    }
+
+
+
+
+
+/*OVERVIEW SECTION*/
+    body{
+        background-color: #667eea;
+    }
+
+    .notes { /* changed margin for top and bottom */
+        max-width: 450px;
+        background-color: white;
+        border-radius: 15px;
+        padding:20px;
+        margin-top: 75px;
+        margin-left: 20px;
+    }
+
+    .notes h1{
+        text-decoration: underline;
+        font-weight: bold;
+    }
+
+    .time{
+        
     }

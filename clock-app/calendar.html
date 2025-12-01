@@ -8,6 +8,7 @@
     </head>
     <body>
         <div class = "navbar">
+            <a href = "overview.html">Overview</a>
             <a href = "clock.html">Clock In/Out</a>
             <a class = "active" href = "calendar.html">Calendar</a>
             <a class = "navLogOut" href = "index.html">Log Out</a>
@@ -103,8 +104,10 @@
                 }
                 
                 //listener for pop-up
+                const overlay = document.getElementById("clockOverlay");
                 body.addEventListener('click', (e) => {
                     if(e.target.tagName == 'TD'){
+                        document.getElementById("overlay").style.display = "block";
                         window.location.href = "clock.html";
                     }
                 });
@@ -122,6 +125,14 @@
                 // initial render
                 render();
             })();
+
+            function off() {
+                document.getElementById("overlay").style.display = "none";
+            }
         </script>
+
+        <div class = "overlay" onclick="off()">
+            
+        </div>
     </body>
 </html>
