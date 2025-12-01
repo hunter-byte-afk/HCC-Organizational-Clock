@@ -37,6 +37,14 @@
                 </table>
         </div>
 
+        <div id="overlay" onclick="off()">
+            
+        </div>
+
+        <div style="padding:20px">
+        <button onclick="on()">Turn on overlay effect</button>
+        </div>
+
         <script>
             (function monthlyRenderer(){
                 const monthTitle = document.getElementById('current-month');
@@ -126,6 +134,7 @@
                 render();
             })();
 
+            function on() {
             function off() {
                 document.getElementById("overlay").style.display = "none";
             }
