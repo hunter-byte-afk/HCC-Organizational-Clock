@@ -384,6 +384,30 @@
         background-color: #2e6b74;
         color: white;
     }
+    /*OVERLAY SECTION*/
+    #overlay {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 2;
+    cursor: pointer;
+    }
+
+    #text{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 50px;
+    color: white;
+    transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    }
 
 /*NAVBAR SECTION*/
     .navbar{
@@ -409,4 +433,48 @@
 
     .navbar a.navLogOut{
         float: right;
+    }
+
+
+
+
+
+/*OVERLAY SECTION*/
+    #overlay{
+        position: fixed;
+        display: none;
+        margin: 0 auto;
+        background-color: yellow; /*opaque overlay in black*/
+        cursor: pointer;
+    }
+
+    #text{
+        color:#0f0619;
+    }
+
+
+
+
+
+/*OVERVIEW SECTION*/
+    body{
+        background-color: #667eea;
+    }
+
+    .notes { /* changed margin for top and bottom */
+        max-width: 450px;
+        background-color: white;
+        border-radius: 15px;
+        padding:20px;
+        margin-top: 75px;
+        margin-left: 20px;
+    }
+
+    .notes h1{
+        text-decoration: underline;
+        font-weight: bold;
+    }
+
+    .time{
+        
     }
