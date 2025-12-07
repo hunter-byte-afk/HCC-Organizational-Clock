@@ -2,6 +2,7 @@
 <html>
     <head>
         <link rel = "stylesheet" href = "style.css">
+        <script src = "overview.js"></script>
     </head>
     <body>
         <div class = "navbar">
@@ -11,13 +12,13 @@
             <a class = "navLogOut" href = "index.html">Log Out</a>
         </div>
 
-        <div class = "notes">
-            <h1> Notes </h1>
+        <div class = "tasks">
+            <h1> Tasks </h1>
+            <input type = "text" id = "newTask" placeholder= "New Task">
+            <span onclick = "newElement()" class = "addTask">Add Task</span>
         </div>
 
-        <div class = "time">
-            <div class="current-time" id="currentTime">00:00:00</div>
-        </div>
-        <script src = "clock.js"></script>
-    </body>
+        <ul id = "taskList">
+
+        </ul>
 </html>
