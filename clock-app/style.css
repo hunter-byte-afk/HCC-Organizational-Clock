@@ -444,7 +444,7 @@
         position: fixed;
         display: none;
         margin: 0 auto;
-        background-color: yellow; /*opaque overlay in black*/
+        background-color: rgba(0, 0, 0, 0.262); /*opaque overlay in black*/
         cursor: pointer;
     }
 
