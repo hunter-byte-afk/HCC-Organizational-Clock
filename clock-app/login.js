@@ -30,4 +30,6 @@ loginBtn.addEventListener("click", () => {
     } else {
         alert("PIN not found");
     }
+document.getElementById("loginBtn").addEventListener("click", () => {
+    window.location.href = "clock.html";
 });
