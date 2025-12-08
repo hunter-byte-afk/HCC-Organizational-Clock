@@ -2,9 +2,11 @@
 let clockedInTime = null;
 let timeEntries = [];
 let timerInterval = null;
+const CSV_PATH = "time_clock.csv";
 
 // Load data from localStorage on page load
 function loadData() {
+/* Having issues with this code because I changed the structure of the data storage and may be moving away from IndexedDB
     const savedEntries = localStorage.getItem('timeEntries');
     const savedClockInTime = localStorage.getItem('clockedInTime');
     
@@ -16,7 +18,13 @@ function loadData() {
         clockedInTime = new Date(savedClockInTime);
         updateUIAfterClockIn();
     }
-    
+*/ 
+    fetch(CSV_PATH)
+        .then(response => response.text())
+        .then(data => {
+            const lines = data.trim().split("\n");
+            lines.shift();
+        });
     updateDisplay();
 }
 

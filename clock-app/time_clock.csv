@@ -1,0 +1,3 @@
+user_id,date,time,clock-in,clock-out
+1,11/18/2025,10:00:00,true,false
+1,11/18/2025,11:00:00,false,true
