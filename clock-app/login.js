@@ -11,7 +11,7 @@ fetch(CSV_PATH)
         lines.shift(); 
         users = lines.map(line => {
             const [user_id, name, pin] = line.split(",").map(field => field.trim());
-            return pin;
+            return {user_id, name, pin};
         });
         loginBtn.disabled = false;
     })
@@ -25,11 +25,13 @@ loginBtn.addEventListener("click", () => {
         return;
     }
 
-    if (users.includes(pinInput)) {
-        window.location.href = "clock.html";
-    } else {
-        alert("PIN not found");
+    const user = users.find(u => u.pin === pinInput);
+
+    if (!user) {
+        alert("Invalid PIN");
+        return;
     }
-document.getElementById("loginBtn").addEventListener("click", () => {
+    localStorage.setItem("loggedInUser", JSON.stringify(user));
+
     window.location.href = "clock.html";
-});
+    });

@@ -3,29 +3,50 @@ let clockedInTime = null;
 let timeEntries = [];
 let timerInterval = null;
 const CSV_PATH = "time_clock.csv";
+const user = JSON.parse(localStorage.getItem("loggedInUser"));
+if (!user) {
+    window.location.href = "index.html";
+}
 
+document.getElementById('welcomeMsg').textContent = `Welcome, ${user.name}`;
 // Load data from localStorage on page load
 function loadData() {
-/* Having issues with this code because I changed the structure of the data storage and may be moving away from IndexedDB
-    const savedEntries = localStorage.getItem('timeEntries');
-    const savedClockInTime = localStorage.getItem('clockedInTime');
-    
-    if (savedEntries) {
-        timeEntries = JSON.parse(savedEntries);
-    }
-    
-    if (savedClockInTime) {
-        clockedInTime = new Date(savedClockInTime);
-        updateUIAfterClockIn();
-    }
-*/ 
     fetch(CSV_PATH)
         .then(response => response.text())
         .then(data => {
             const lines = data.trim().split("\n");
             lines.shift();
-        });
-    updateDisplay();
+
+            timeEntries = [];
+
+            for (const line of lines) {
+                const [user_id, date, time, clockInFlag, clockOutFlag] = line.split(",").map(x => x.trim());
+                if (user_id === user.user_id) continue;
+
+                const isClockIn = clockInFlag === "true";
+                const isClockOut = clockOutFlag === "true";
+
+                if (isClockIn) {
+                    timeEntries.push({
+                        date: date,
+                        inTime: time,
+                        outTime: null,
+                        duration: null
+                    });
+                }
+
+                if (isClockOut && timeEntries.length > 0) {
+                    const lastEntry = timeEntries[timeEntries.length - 1];
+                    lastEntry.outTime = time;
+
+                    const start = new Date(`${date} ${lastEntry.inTime}`);
+                    const end = new Date(`${date} ${lastEntry.outTime}`);
+                    lastEntry.duration = calculateDuration(start, end);
+                }
+            }
+        updateDisplay();
+        })
+        .catch(err => console.error("Error loading CSV:", err));
 }
 
 // Save data to localStorage
