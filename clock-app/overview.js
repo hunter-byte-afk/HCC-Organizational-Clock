@@ -112,3 +112,29 @@ function newElement(){
 window.addEventListener('DOMContentLoaded', () => {
     loadTasks();
 });
+
+//dropdown section
+var sections = [];
+
+function addSection(){
+    var select = doument.getElementById("select");
+    select.innerHTML = "";
+
+    for (var i = 0; i < sections.length; i++){
+        var option = document.createElement("option");
+        option.value = sections[i];
+        option.textContent = sections[i];
+        select.appendChild(option);
+    }
+}
+
+document.getElementById("addSection").onclick = function(){
+    var sectionName = prompt("Section name:");
+
+    if(!selectionName){
+        return;
+    }
+
+    sections.push(sectionName);
+    addSection();
+}
