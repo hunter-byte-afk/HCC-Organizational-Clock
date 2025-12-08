@@ -481,7 +481,18 @@
         cursor: pointer;
     }
 
-    input{
-        font-size: 16px;
+    ul li{
+        cursor: pointer;
+        list-style-type: none;
+        background-color: #9c6dcc;
+        color: white;
+    }
+
+    ul li:nth-child(odd){
+        background-color: #764ba2;
+    }
+
+    ul li.checked{
+        text-decoration: line-through;
     }
 
