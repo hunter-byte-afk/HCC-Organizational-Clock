@@ -1,10 +1,11 @@
 /* LOG IN SECTION*/
     .logIn{
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: #5C5C99;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         margin: 0;
         padding: 20px;
         min-height: 100vh;
+        color: white;
     }
 
 
@@ -13,7 +14,7 @@
 
 /* CLOCK SECTION*/
     .clock{
-        background-color: #667eea;
+        background-color: #5C5C99;
         font-family: Arial, sans-serif;
         margin: 0;
         padding: 0px;
@@ -22,7 +23,7 @@
     .container { /* changed margin for top and bottom */
         max-width: 600px;
         margin: 0 auto;
-        background-color: white;
+        background-color: #292966;
         border-radius: 15px;
         padding: 40px;
         box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
@@ -32,12 +33,12 @@
 
     h1 {
         text-align: center;
-        color: #333;
+        color: #eee;
         margin-top: 0px;
     }
 
     h2 {
-        color: #555;
+        color: #eee;
         font-size: 1.2em;
         margin-top: 30px;
         margin-bottom: 15px;
@@ -224,7 +225,7 @@
     
 /* CALENDAR SECTION*/
     .calendar{
-        background-color: #667eea;
+        background-color: #5C5C99;
         font-family: Arial, sans-serif;
         margin: 0;
         padding: 0px;
@@ -255,7 +256,7 @@
     }
 
     .calendar-container{ /* changed margin for top and bottom */
-        background-color: #6d5ba9;
+        background-color: #292966;
         border-radius: 8px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         padding: 20px;
@@ -285,7 +286,7 @@
     }
 
     .calendar-nav button{
-        background-color: #6d5ba9;
+        background-color: #292966;
         color: white;
         border: none;
         padding: 8px 12px;
@@ -299,7 +300,7 @@
     }
 
     .nav-btn{
-        background-color: #6d5ba9;
+        background-color: #292966;
         color: white;
         border: none;
         padding: 8px 12px;
@@ -319,7 +320,7 @@
     }
 
     .calendar th{
-        background-color: #6d5ba9;
+        background-color: #292966;
         color: white;
         padding: 10px;
         text-align: center;
@@ -340,8 +341,8 @@
     }
 
     .calendar .today{
-        background-color: #f0edff;
-        border: 2px solid #6d5ba9;
+        background-color: #CCCCFF;
+        border: 2px solid #292966;
     }
 
     .calendar .date-number{
@@ -417,7 +418,7 @@
 
 /*NAVBAR SECTION*/
     .navbar{
-        background-color: #0f0619;
+        background-color: #292966;
     }
 
     .navbar a{
@@ -430,11 +431,12 @@
     }
 
     .navbar a:hover{
-        background-color: #9c6dcc;
+        background-color: #CCCCFF;
+        color: black;
     }
 
     .navbar a.active{
-        background-color: #442564;
+        background-color: #5C5C99;
     }
 
     .navbar a.navLogOut{
@@ -449,7 +451,7 @@
 
 /*OVERVIEW SECTION*/
     .overview{
-        background-color: #667eea;
+        background-color: #5C5C99;
         font-family: Arial, sans-serif;
         margin: 0;
         padding: 0px;
@@ -457,7 +459,7 @@
 
     .tasks { /* changed margin for top and bottom */
         max-width: 450px;
-        background-color: white;
+        background-color: #CCCCFF;
         border-radius: 15px;
         padding:20px;
         margin-top: 30px;
@@ -472,6 +474,7 @@
 
     .tasks h1{
         font-weight: bold;
+        color: black;
     }
 
     input{
@@ -484,7 +487,7 @@
 
     .addTask{
         padding: 7px;
-        background-color: #9c6dcc;
+        background-color: #5C5C99;
         color:white;
         cursor: pointer;
         border-radius: 0%;
@@ -492,7 +495,7 @@
     }
 
     .addTask:hover{
-        background-color: #442564;
+        background-color: #292966;
     }
 
     ul{
@@ -503,22 +506,24 @@
     ul li{
         cursor: pointer;
         list-style-type: none;
-        background-color: #9c6dcc;
-        color: white;
+        background-color: #A3A3CC;
+        color: black;
         padding: 12px 8px 12px 40px;
         position: relative;
     }
 
     ul li:nth-child(odd){
-        background-color: #764ba2;
+        background-color: #5C5C99;
+        color: white;
     }
 
     ul li:hover{
-        background-color: #62388b;
+        background-color: #292966;
+        color: white;
     }
     ul li.checked{
         text-decoration: line-through;
-        background-color: #442564;
+        background-color: #292966;
     }
 
     .close {

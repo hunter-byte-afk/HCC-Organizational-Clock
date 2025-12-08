@@ -18,6 +18,15 @@ for (var i= 0; i < close.length; i++){
     }
 }
 
+//Line through text for done Code
+var list = document.querySelector('ul');
+list.addEventListener('click', function(ev) {
+  if (ev.target.tagName === 'LI') {
+    ev.target.classList.toggle('checked');
+  }
+}, false);
+
+
 //Task Entry Code
 function newElement(){
     var li = document.createElement("li");  //Creates new list element (new row for the list)
