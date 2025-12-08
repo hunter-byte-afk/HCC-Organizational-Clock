@@ -2,21 +2,21 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <meta
-            http-equiv="Content-Security-Policy"
-            content="default-src 'self'; script-src 'self'"
-        />
-        <title>Login</title>
-        <link rel="stylesheet" href="style.css" />
-    </head>
-    <body class = "logIn">
+        <meta 
+            http-equiv="Content-Security-Policy" 
+            content="default-src 'self'; script-src 'self'" 
+            />
+            <title>Login</title>
+            <link rel="stylesheet" href="style.css" />
+        </head>
+    <body class="logIn">
         <div class="container login-container">
-            <h1>Welcome</h1>
-            <p>Please log in to continue.</p>
+        <h1>Welcome</h1>
+        <p>Please log in with your PIN.</p>
+        <input type="password" id="pin" placeholder="PIN (4 digits)" maxlength="4" />
+        <button id="loginBtn" class="btn btn-in">Log In</button>
+    </div>
 
-            <button id="loginBtn" class="btn btn-in">Log In</button>
-        </div>
-
-        <script src="login.js"></script>
-    </body>
+    <script src="login.js"></script>
+</body>
 </html>
