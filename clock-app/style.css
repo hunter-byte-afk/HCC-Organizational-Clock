@@ -13,11 +13,10 @@
 
 /* CLOCK SECTION*/
     .clock{
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #667eea;
+        font-family: Arial, sans-serif;
         margin: 0;
         padding: 0px;
-        min-height: 100vh;
     }
 
     .container { /* changed margin for top and bottom */
@@ -224,8 +223,8 @@
 
     
 /* CALENDAR SECTION*/
-    body{
-        background-color: #f0edff;
+    .calendar{
+        background-color: #667eea;
         font-family: Arial, sans-serif;
         margin: 0;
         padding: 0px;
@@ -449,8 +448,11 @@
 
 
 /*OVERVIEW SECTION*/
-    body{
+    .overview{
         background-color: #667eea;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0px;
     }
 
     .tasks { /* changed margin for top and bottom */
@@ -458,19 +460,44 @@
         background-color: white;
         border-radius: 15px;
         padding:20px;
-        margin-top: 75px;
+        margin-top: 30px;
         margin-left: 20px;
+        flex: 1;
+    }
+
+    .header{
+        padding: 20px;
+        text-align: center;
     }
 
     .tasks h1{
         font-weight: bold;
     }
 
+    input{
+        float: left;
+        font-size: 16px;
+        border-radius: 0%;
+        width: 78%;
+        height: 27px;
+    }
+
     .addTask{
-        padding: 10px;
+        padding: 7px;
         background-color: #9c6dcc;
         color:white;
         cursor: pointer;
+        border-radius: 0%;
+        float: left;
+    }
+
+    .addTask:hover{
+        background-color: #442564;
+    }
+
+    ul{
+        padding: 20px;
+        margin: 0px;
     }
 
     ul li{
@@ -478,12 +505,44 @@
         list-style-type: none;
         background-color: #9c6dcc;
         color: white;
+        padding: 12px 8px 12px 40px;
+        position: relative;
     }
 
     ul li:nth-child(odd){
         background-color: #764ba2;
     }
 
+    ul li:hover{
+        background-color: #62388b;
+    }
     ul li.checked{
         text-decoration: line-through;
+        background-color: #442564;
+    }
+
+    .close {
+        position: absolute;
+        right: 0;
+        top: 0;
+        padding: 12px 16px 12px 16px;
+    }
+
+    .close:hover {
+        background-color: #f44336;
+        color: white;
+    }
+
+    .overviewLayout{
+        display: flex;
+        flex-direction: row;
+        padding: 20px;
+        align-items: flex-start;
+    }
+
+    .calendarOverview{
+        flex: 2;
+        margin-left: 75px;
+        max-width: 60%;
+        padding: 10px;
     }
