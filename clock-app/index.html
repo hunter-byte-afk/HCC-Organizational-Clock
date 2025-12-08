@@ -2,10 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <meta 
-            http-equiv="Content-Security-Policy" 
-            content="default-src 'self'; script-src 'self'" 
-            />
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; connect-src 'self'">
             <title>Login</title>
             <link rel="stylesheet" href="style.css" />
         </head>
@@ -13,6 +10,7 @@
         <div class="container login-container">
         <h1>Welcome</h1>
         <p>Please log in with your PIN.</p>
+        <input type="text" id="username" placeholder="Name" />
         <input type="password" id="pin" placeholder="PIN (4 digits)" maxlength="4" />
         <button id="loginBtn" class="btn btn-in">Log In</button>
     </div>

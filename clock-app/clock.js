@@ -1,36 +1,36 @@
-// Clock in/out functionality
-let clockedInTime = null;
-let timeEntries = [];
-let timerInterval = null;
-const CSV_PATH = "time_clock.csv";
+const loggedInUserData = localStorage.getItem('loggedInUser');
+const loggedInUser = loggedInUserData ? JSON.parse(loggedInUserData) : null;
 
-// Load data from localStorage on page load
-function loadData() {
-/* Having issues with this code because I changed the structure of the data storage and may be moving away from IndexedDB
-    const savedEntries = localStorage.getItem('timeEntries');
-    const savedClockInTime = localStorage.getItem('clockedInTime');
-    
-    if (savedEntries) {
-        timeEntries = JSON.parse(savedEntries);
+console.log('Logged in user:', loggedInUser);
+
+// Time entries array
+let timeEntries = [];
+
+// Load time entries from localStorage on page load
+function loadTimeEntries() {
+    const saved = localStorage.getItem('timeEntries');
+    if (saved) {
+        timeEntries = JSON.parse(saved);
     }
-    
-    if (savedClockInTime) {
-        clockedInTime = new Date(savedClockInTime);
-        updateUIAfterClockIn();
-    }
-*/ 
-    fetch(CSV_PATH)
-        .then(response => response.text())
-        .then(data => {
-            const lines = data.trim().split("\n");
-            lines.shift();
-        });
-    updateDisplay();
+    renderEntries();
 }
 
-// Save data to localStorage
-function saveData() {
+// Save time entries to localStorage
+function saveTimeEntries() {
     localStorage.setItem('timeEntries', JSON.stringify(timeEntries));
+}
+
+// Load clocked-in state from localStorage
+function loadClockedInState() {
+    const saved = localStorage.getItem('clockedInTime');
+    if (saved) {
+        clockedInTime = new Date(saved);
+        updateUIAfterClockIn();
+    }
+}
+
+// Save clocked-in state to localStorage
+function saveClockedInState() {
     if (clockedInTime) {
         localStorage.setItem('clockedInTime', clockedInTime.toISOString());
     } else {
@@ -38,121 +38,7 @@ function saveData() {
     }
 }
 
-// Clock in function
-function clockIn() {
-    if (clockedInTime) {
-        alert('You are already clocked in!');
-        return;
-    }
-    
-    clockedInTime = new Date();
-    updateUIAfterClockIn();
-    saveData();
-}
-
-// Clock out function
-function clockOut() {
-    if (!clockedInTime) {
-        alert('You are not clocked in!');
-        return;
-    }
-    
-    const clockOutTime = new Date();
-    const duration = calculateDuration(clockedInTime, clockOutTime);
-    
-    timeEntries.push({
-        date: clockedInTime.toLocaleDateString(),
-        inTime: clockedInTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' }),
-        outTime: clockOutTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' }),
-        duration: duration
-    });
-    
-    clockedInTime = null;
-    clearInterval(timerInterval);
-    updateUIAfterClockOut();
-    saveData();
-    updateDisplay();
-}
-
-// Update UI after clocking in
-function updateUIAfterClockIn() {
-    document.getElementById('clockInBtn').disabled = true;
-    document.getElementById('clockOutBtn').disabled = false;
-    document.getElementById('status').textContent = 'Clocked In';
-    document.getElementById('status').classList.add('clocked-in');
-    
-    if (timerInterval) clearInterval(timerInterval);
-    timerInterval = setInterval(updateClockedInTime, 1000);
-}
-
-// Update UI after clocking out
-function updateUIAfterClockOut() {
-    document.getElementById('clockInBtn').disabled = false;
-    document.getElementById('clockOutBtn').disabled = true;
-    document.getElementById('status').textContent = 'Not Clocked In';
-    document.getElementById('status').classList.remove('clocked-in');
-    document.getElementById('clockedInTime').textContent = '--:-- --';
-}
-
-// Update the clocked in time display
-function updateClockedInTime() {
-    if (clockedInTime) {
-        document.getElementById('clockedInTime').textContent = clockedInTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-    }
-}
-
-// Calculate duration between two times
-function calculateDuration(startTime, endTime) {
-    const diff = endTime - startTime;
-    const hours = Math.floor(diff / (1000 * 60 * 60));
-    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-    
-    return { hours, minutes, seconds };
-}
-
-// Format duration for display
-function formatDuration(duration) {
-    return `${duration.hours}h ${duration.minutes}m ${duration.seconds}s`;
-}
-
-// Calculate today's total hours
-function calculateTodayHours() {
-    const today = new Date().toLocaleDateString();
-    let totalSeconds = 0;
-    
-    timeEntries.forEach(entry => {
-        if (entry.date === today) {
-            const { hours, minutes, seconds } = entry.duration;
-            totalSeconds += (hours * 3600) + (minutes * 60) + seconds;
-        }
-    });
-    
-    // Add current clocked in time if applicable
-    if (clockedInTime && clockedInTime.toLocaleDateString() === today) {
-        const currentDuration = calculateDuration(clockedInTime, new Date());
-        totalSeconds += (currentDuration.hours * 3600) + (currentDuration.minutes * 60) + currentDuration.seconds;
-    }
-    
-    const hours = Math.floor(totalSeconds / 3600);
-    const minutes = Math.floor((totalSeconds % 3600) / 60);
-    
-    return `${hours}h ${minutes}m`;
-}
-
-// Update the current time display
-function updateCurrentTime() {
-    const now = new Date();
-    const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
-    document.getElementById('currentTime').textContent = timeString;
-}
-
-// Update today's hours display
-function updateTodayHours() {
-    document.getElementById('todayHours').textContent = calculateTodayHours();
-}
-
-// Render time entries list
+// Render time entries to the DOM
 function renderEntries() {
     const entriesList = document.getElementById('entriesList');
     
@@ -161,38 +47,107 @@ function renderEntries() {
         return;
     }
     
-    // Sort entries by date (newest first) and then by time
-    const sortedEntries = [...timeEntries].reverse();
-    
-    entriesList.innerHTML = sortedEntries.map((entry, index) => `
+    entriesList.innerHTML = timeEntries.map((entry, index) => `
         <div class="entry-item">
             <div class="entry-times">
                 <span class="entry-date">${entry.date}</span>
                 <span class="entry-time">${entry.inTime} - ${entry.outTime}</span>
-                <span class="entry-duration">${formatDuration(entry.duration)}</span>
+                <span class="entry-duration">${entry.duration}</span>
             </div>
         </div>
     `).join('');
 }
 
-// Update all displays
-function updateDisplay() {
-    updateCurrentTime();
-    updateTodayHours();
-    updateClockedInTime();
+// Update UI after clocking in
+function updateUIAfterClockIn() {
+    document.getElementById('status').textContent = `Clocked in as ${loggedInUser.name}`;
+    document.getElementById('status').classList.add('clocked-in');
+    document.getElementById('clockedInTime').textContent = clockedInTime.toLocaleTimeString();
+    document.getElementById('clockInBtn').disabled = true;
+    document.getElementById('clockOutBtn').disabled = false;
+}
+
+// Updates the Clock //
+function updateClock(){
+    const currentTimeEl = document.getElementById('currentTime');
+    const now = new Date();
+
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const seconds = String(now.getSeconds()).padStart(2, '0');
+
+    currentTimeEl.textContent = `${hours}:${minutes}:${seconds}`;
+}
+
+
+updateClock();
+
+setInterval(updateClock, 1000);
+
+// Clocking in and Out //
+
+let clockedInTime = null;
+
+function clockIn() {
+    console.log('clockIn() called');
+    if (!loggedInUser) {
+        alert('No user logged in!');
+        return;
+    }
+    if (clockedInTime) {
+        alert('You are already clocked in!');
+        return;
+    }
+    clockedInTime = new Date();
+    updateUIAfterClockIn();
+    saveClockedInState();
+    console.log(`Clocked in at ${clockedInTime}`);
+}
+
+function clockOut() {
+    console.log('clockOut() called');
+    if (!clockedInTime) {
+        alert('You are not clocked in!');
+        return;
+    }
+    
+    const clockOutTime = new Date();
+    
+    // Calculate duration
+    const diffMs = clockOutTime - clockedInTime;
+    const hours = Math.floor(diffMs / (1000 * 60 * 60));
+    const minutes = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diffMs % (1000 * 60)) / 1000);
+    const duration = `${hours}h ${minutes}m ${seconds}s`;
+    
+    // Add entry to time entries
+    timeEntries.push({
+        date: clockedInTime.toLocaleDateString(),
+        inTime: clockedInTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' }),
+        outTime: clockOutTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' }),
+        duration: duration
+    });
+    
+    // Save and render
+    saveTimeEntries();
     renderEntries();
+    
+    // Reset clocked in state
+    clockedInTime = null;
+    saveClockedInState();
+    
+    // Update UI
+    document.getElementById('status').textContent = 'Not Clocked In';
+    document.getElementById('status').classList.remove('clocked-in');
+    document.getElementById('clockedInTime').textContent = '--:-- --';
+    document.getElementById('clockInBtn').disabled = false;
+    document.getElementById('clockOutBtn').disabled = true;
+    
+    console.log(`Clocked out at ${clockOutTime}`);
 }
 
 // Initialize on page load
 window.addEventListener('DOMContentLoaded', () => {
-    loadData();
-    
-    // Update current time every second
-    setInterval(updateCurrentTime, 1000);
-    
-    // Update today's hours every minute
-    setInterval(updateTodayHours, 60000);
-    
-    // Update displays initially
-    updateDisplay();
+    loadTimeEntries();
+    loadClockedInState();
 });
