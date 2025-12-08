@@ -506,7 +506,7 @@
     ul li{
         cursor: pointer;
         list-style-type: none;
-        background-color: #A3A3CC;
+        background-color: #eee;
         color: black;
         padding: 12px 8px 12px 40px;
         position: relative;
