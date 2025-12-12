@@ -13,8 +13,8 @@
             <a class = "active" href = "calendar.html">Calendar</a>
             <a class = "navLogOut" href = "index.html">Log Out</a>
         </div>
-
-        <div class="calendar-container">
+        <!--Authors: Elizabeth Torres -->
+        <div class="calendar-container"> 
             <div class="calendar-header">
                 <button id="prev-month" class="nav-btn">Prev</button>
                 <h2 id="current-month"></h2>
@@ -39,7 +39,7 @@
 
         <div id="overlay" onclick="off()">
             
-            <div class = "overlayClock">
+            <div class = "overlayClock"><!--Victoria Treviño-->
                 <!--Clock COPIED FROM CLOCK.HTML--> 
                 <div class="container">
                     <div class="clock-display">
@@ -85,7 +85,7 @@
                 let viewDate = new Date();
                 viewDate.setDate(1);
 
-                function render(){
+                function render(){//Authors: Elizabeth Torres
                     const year = viewDate.getFullYear();
                     const month = viewDate.getMonth();
                     const today = new Date();
@@ -162,11 +162,11 @@
                 render();
             })();
 
-            function on() {
+            function on() {//Authors: Victoria Treviño
                 document.getElementById("overlay").style.display = "flex";
             }
 
-            function off() {
+            function off() {//Authors: Victoria Treviño
                 document.getElementById("overlay").style.display = "none";
             }
         </script>
