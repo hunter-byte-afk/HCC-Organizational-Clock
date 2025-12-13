@@ -1,3 +1,5 @@
+//Authors: Renae Hunt
+
 document.getElementById('loginBtn').addEventListener('click', () => {
     const name = document.getElementById('username').value.trim();
     const pin = document.getElementById('pin').value.trim(); // just take the input as-is

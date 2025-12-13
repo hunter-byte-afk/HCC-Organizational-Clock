@@ -1,3 +1,5 @@
+//Authors: Renae Hunt
+
 const loggedInUserData = localStorage.getItem('loggedInUser');
 const loggedInUser = loggedInUserData ? JSON.parse(loggedInUserData) : null;
 

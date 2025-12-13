@@ -1,3 +1,5 @@
+//Authors: Renae Hunt and Victoria Treviño
+
 //Clear Button Code
 var myNodeList = document.getElementsByTagName("LI");
 
