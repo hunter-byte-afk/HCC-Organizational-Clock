@@ -1,9 +1,14 @@
 //Authors: Renae Hunt
 
 const loggedInUserData = localStorage.getItem('loggedInUser');
-const loggedInUser = loggedInUserData ? JSON.parse(loggedInUserData) : null;
+const loggedInUser = loggedInUserData ? JSON.parse(loggedInUserData) : { id: 0, name: 'Guest' };
 
-console.log('Logged in user:', loggedInUser);
+// Ensure a loggedInUser is available in storage for compatibility
+if (!loggedInUserData) {
+    localStorage.setItem('loggedInUser', JSON.stringify(loggedInUser));
+}
+
+console.log('Logged in user (auto):', loggedInUser);
 
 // Time entries array
 let timeEntries = [];
@@ -92,10 +97,6 @@ let clockedInTime = null;
 
 function clockIn() {
     console.log('clockIn() called');
-    if (!loggedInUser) {
-        alert('No user logged in!');
-        return;
-    }
     if (clockedInTime) {
         alert('You are already clocked in!');
         return;

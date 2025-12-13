@@ -1,5 +1,4 @@
 const { contextBridge, ipcRenderer } = require("electron");
 
-contextBridge.exposeInMainWorld("electronAPI", {
-    login: () => ipcRenderer.send("login-success")
-});
+// Login removed — keep the API surface consistent for other code
+contextBridge.exposeInMainWorld("electronAPI", {});

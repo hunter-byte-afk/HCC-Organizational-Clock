@@ -12,8 +12,8 @@ function createWindow() {
     }
   });
 
-  // Start with the login page
-  win.loadFile('index.html');
+  // Start directly with the clock page (login removed)
+  win.loadFile('clock.html');
 }
 
 app.whenReady().then(() => {
