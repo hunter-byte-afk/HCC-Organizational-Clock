@@ -16,7 +16,7 @@ Time Stamps
 **Lisa:**  
 Front-end code:  
       Calendar Page  
-      Monthly View  
+Monthly View  
 Day-tracking  
 Writing Assignments  
   
