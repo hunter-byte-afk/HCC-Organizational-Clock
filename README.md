@@ -25,6 +25,7 @@ Writing Assignments
 Front-end code:  
     General Overview  
     Clock Overlay  
-Overall Design Cohesion  
+Overall Design Cohesion
+Design and Sketches
 Writing Assignments
 ```
