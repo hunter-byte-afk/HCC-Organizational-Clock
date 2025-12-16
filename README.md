@@ -2,7 +2,7 @@
 This is for CSCI 4250 semester long project. This project is mix of a clock in and clock out system as well as a program manager. 
 
 _**Allocation of Labor:**_
-
+```
 **Renae:**  
 Back-end code:  
       Login  
@@ -26,3 +26,4 @@ Front-end code:
     Clock Overlay  
 Overall Design Cohesion  
 Writing Assignments
+```
