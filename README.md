@@ -3,7 +3,7 @@ This is for CSCI 4250 semester long project. This project is mix of a clock in a
 
 _**Allocation of Labor:**_
 ```
-**Renae:**  
+**Renae:**
 Back-end code:  
       Login  
       Clocking in/out  
