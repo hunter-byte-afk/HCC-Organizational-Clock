@@ -17,7 +17,8 @@ Time Stamps
 Front-end code:  
       Calendar Page  
 Monthly View  
-Day-tracking  
+Day-tracking
+Design and Appearance 
 Writing Assignments  
   
 **Victoria:**  
